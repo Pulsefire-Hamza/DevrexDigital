@@ -1,0 +1,21 @@
+/* src/index.css or global.css */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom CSS */
+@keyframes glow-bright {
+  0%, 100% {
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.7);
+    filter: brightness(1);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 1);
+    filter: brightness(1.5);
+  }
+}
+
+.animate-glow-bright {
+  animation: glow-bright 1.5s infinite;
+}
