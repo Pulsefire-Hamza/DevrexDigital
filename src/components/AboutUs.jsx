@@ -7,7 +7,7 @@ const AboutUs = () => {
     <section className="text-white py-20 px-4 bg-transparent">
       <div className="container mx-auto text-center">
         {/* About Us Heading */}
-        <h2 className="text-blue-400 font-bold text-4xl mb-6 pb-10">ABOUT US</h2>
+        <h2 className="text-blue-400 font-bold text-4xl mb-6 pb-10 pt-28">ABOUT US</h2>
         <p className="text-gray-400 mb-12 max-w-2xl mx-auto">
           At Devrex, we are dedicated to empowering clients to achieve their strategic goals through cutting-edge digital solutions. Our focus is on aligning our expertise with the unique visions of each client, crafting tailored strategies that address immediate needs while laying the groundwork for sustained growth and success in a dynamic digital landscape.
         </p>
