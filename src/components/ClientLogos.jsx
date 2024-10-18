@@ -37,7 +37,7 @@ const ClientLogos = () => {
       }
     };
 
-    const intervalId = setInterval(scroll, 20); // Adjust the speed by changing interval time
+    const intervalId = setInterval(scroll, 10); // Adjust the speed by changing interval time
     return () => clearInterval(intervalId); // Cleanup interval on component unmount
   }, []);
 
