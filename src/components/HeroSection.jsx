@@ -4,7 +4,7 @@ const HeroSection = () => {
   return (
     <div className="flex flex-col lg:flex-row items-center justify-center lg:justify-between px-6 lg:px-10 py-12 lg:py-20 h-[80vh] pt-40">
       <div className="w-full lg:w-1/2 text-white text-center lg:text-left pl-0 lg:pl-32">
-        <h1 className="text-4xl lg:text-7xl font-bold pt-28">Welcome to</h1>
+        <h1 className="text-4xl lg:text-7xl font-bold pt-48">Welcome to</h1>
         <h2 className="text-5xl lg:text-8xl mt-2 text-gray-300 animate-glow-bright">
           Devrex Digital
         </h2>
