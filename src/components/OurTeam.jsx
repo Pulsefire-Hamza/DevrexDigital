@@ -57,6 +57,7 @@ const OurTeam = () => {
                 href={member.insta} 
                 target="_blank" 
                 rel="noopener noreferrer" 
+                onClick={(e) => e.stopPropagation()} // Prevent click event from bubbling up
                 className="text-pink-600 hover:text-pink-400 transition-colors duration-300"
               >
                 <FaInstagram size={28} />
