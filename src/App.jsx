@@ -12,7 +12,7 @@ import Terms from './pages/Terms';  // Import Terms component
 import Footer from './components/Footer';  // Import Footer component
 import OurTeam from './components/OurTeam';
 import ClientLogos from './components/ClientLogos';
-import Reviews from './pages/Reviews';
+
 
 
 
@@ -32,7 +32,7 @@ const App = () => {
             <Route path="/" element={<><HeroSection /><AboutUs /><WhyWork /> <OurTeam/> <ClientLogos/>    </>} />
             <Route path="/portfolio" element={<Portfolio />} />
             <Route path="/services" element={<Services />} />
-            <Route path="/reviews" element={<Reviews />} />
+            
             <Route path="/contact" element={<Contact />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />  {/* Privacy Policy Route */}
             <Route path="/terms" element={<Terms />} />  {/* Terms Route */}
