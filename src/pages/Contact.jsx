@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 
-
 const Contact = () => {
   const [selectedServices, setSelectedServices] = useState([]);
-  
+
   const handleServiceChange = (event) => {
     const value = event.target.value;
     setSelectedServices((prev) => 
@@ -22,7 +21,7 @@ const Contact = () => {
     const services = selectedServices.join(', ');
 
     const whatsappMessage = `Name: ${name}%0AEmail: ${email}%0APhone: ${phone}%0AServices: ${services}%0AMessage: ${message}`;
-    const whatsappNumber = '+923054122637'; // Replace with the doctor's WhatsApp number
+    const whatsappNumber = '+996 702 473 024'; // Replace with the doctor's WhatsApp number
 
     // Redirect to WhatsApp
     window.open(`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`, '_blank');
@@ -54,18 +53,6 @@ const Contact = () => {
               devrexdigital@gmail.com
             </a>
           </p>
-          
-          {/* Fiverr Contact Button */}
-          <div className="mt-6">
-            <a 
-              href="https://www.fiverr.com/your-profile" // Replace with your Fiverr profile link
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="inline-block bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition duration-300"
-            >
-             Order on Fiver
-            </a>
-          </div>
         </div>
 
         {/* Right Section: Form */}
