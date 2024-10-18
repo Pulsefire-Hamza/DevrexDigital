@@ -1,30 +1,27 @@
 import React from 'react';
-import { FaFacebookF, FaInstagram } from 'react-icons/fa';
+import { FaInstagram } from 'react-icons/fa'; // Import only Instagram icon
 
 const teamMembers = [
   {
     name: 'Mudassir',
     role: 'Project Manager',
     image: 'https://firebasestorage.googleapis.com/v0/b/devrex-628fe.appspot.com/o/beasta-min.png?alt=media&token=1b9a78c1-fb38-40f1-a8f7-8c154a19b415',
-    portfolio: 'https://example.com/mudassir-portfolio',
-    fb: 'https://facebook.com/mudassir',
-    insta: 'https://instagram.com/mudassir',
+    portfolio: '/',
+    insta: 'https://www.instagram.com/abbas.ezi/',
   },
   {
     name: 'Hamza',
     role: 'Lead Developer',
     image: 'https://firebasestorage.googleapis.com/v0/b/devrex-628fe.appspot.com/o/hamza-min.png?alt=media&token=9b27277f-7709-40f6-8a49-47ad380950db',
     portfolio: 'https://hamza-dev-bice.vercel.app/',
-    fb: 'https://facebook.com/hamza',
-    insta: 'https://instagram.com/hamza',
+    insta: 'https://www.instagram.com/humzatariq279/',
   },
   {
     name: 'Abdul-Rehman',
     role: 'Digital Marketing Leader',
     image: 'https://firebasestorage.googleapis.com/v0/b/devrex-628fe.appspot.com/o/booma-min.png?alt=media&token=02a12381-0c53-4a4c-90be-34d8c56791cf',
-    portfolio: 'https://example.com/abdul-rehman-portfolio',
-    fb: 'https://facebook.com/abdul-rehman',
-    insta: 'https://instagram.com/abdul-rehman',
+    portfolio: '/',
+    insta: 'https://www.instagram.com/abdu_lrehman47/',
   },
 ];
 
@@ -55,10 +52,13 @@ const OurTeam = () => {
             </h3>
             <p className="text-center text-gray-400">{member.role}</p>
             <div className="flex justify-center gap-4 mt-4">
-              <a href={member.fb} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-400 transition-colors duration-300">
-                <FaFacebookF size={28} />
-              </a>
-              <a href={member.insta} target="_blank" rel="noopener noreferrer" className="text-pink-600 hover:text-pink-400 transition-colors duration-300">
+              {/* Only Instagram icon and link */}
+              <a 
+                href={member.insta} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-pink-600 hover:text-pink-400 transition-colors duration-300"
+              >
                 <FaInstagram size={28} />
               </a>
             </div>
