@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 const ClientLogos = () => {
   const logos = [
@@ -24,85 +24,71 @@ const ClientLogos = () => {
     },
   ];
 
-  const [currentLogoIndex, setCurrentLogoIndex] = useState(0);
-  const [isHovered, setIsHovered] = useState(false);
+  const scrollRef = useRef(null);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      if (!isHovered) {
-        setCurrentLogoIndex((prevIndex) => (prevIndex + 1) % logos.length);
+    const scroll = () => {
+      if (scrollRef.current) {
+        scrollRef.current.scrollLeft += 1; // Increment the scroll position
+        // Loop back to the start when the scroll reaches the end
+        if (scrollRef.current.scrollLeft >= scrollRef.current.scrollWidth - scrollRef.current.clientWidth) {
+          scrollRef.current.scrollLeft = 0; // Reset to the start
+        }
       }
-    }, 2000); // Change logo every 2 seconds for faster transitions
+    };
 
-    return () => clearInterval(interval);
-  }, [isHovered]);
-
-  // Get the indices for the previous, current, and next logos
-  const nextIndex = (currentLogoIndex + 1) % logos.length;
-  const prevIndex = (currentLogoIndex - 1 + logos.length) % logos.length;
+    const intervalId = setInterval(scroll, 20); // Adjust the speed by changing interval time
+    return () => clearInterval(intervalId); // Cleanup interval on component unmount
+  }, []);
 
   return (
-    <div className="p-6">
-      <h2 className="text-4xl font-bold text-center mb-4 text-blue-400 pb-16">Brands We Work With</h2>
-      <div
-        className="relative flex justify-center items-center"
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-      >
-        <div className="flex justify-center space-x-8">
-          {/* Previous Logo */}
-          <a
-            href={logos[prevIndex].link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="transition-all duration-300 ease-in-out transform hover:scale-105"
-          >
-            <img
-              src={logos[prevIndex].src}
-              alt={`Client Logo ${prevIndex + 1}`}
-              className="h-48 w-48 object-contain shadow-lg rounded-md opacity-40 hover:shadow-2xl transition-opacity duration-300"
-              onError={(e) => {
-                e.target.onerror = null;
-                e.target.src = 'https://via.placeholder.com/150?text=Logo+Not+Found';
-              }}
-            />
-          </a>
-
-          {/* Current Logo */}
-          <a
-            href={logos[currentLogoIndex].link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="transition-all duration-300 ease-in-out transform hover:scale-105"
-          >
-            <img
-              src={logos[currentLogoIndex].src}
-              alt={`Client Logo ${currentLogoIndex + 1}`}
-              className="h-48 w-48 object-contain shadow-lg rounded-md opacity-100 hover:shadow-2xl filter brightness-125 transition-opacity duration-300" // Added brightness filter
-              onError={(e) => {
-                e.target.onerror = null;
-                e.target.src = 'https://via.placeholder.com/150?text=Logo+Not+Found';
-              }}
-            />
-          </a>
-
-          {/* Next Logo */}
-          <a
-            href={logos[nextIndex].link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="transition-all duration-300 ease-in-out transform hover:scale-105"
-          >
-            <img
-              src={logos[nextIndex].src}
-              alt={`Client Logo ${nextIndex + 1}`}
-              className="h-48 w-48 object-contain shadow-lg rounded-md opacity-40 hover:shadow-2xl transition-opacity duration-300"
-              onError={(e) => {
-                e.target.onerror = null;
-                e.target.src = 'https://via.placeholder.com/150?text=Logo+Not+Found';
-              }}
-            />
-          </a>
+    <div className="p-6 flex justify-center">
+      <div className="w-full max-w-7xl overflow-hidden px-8">
+        <h2 className="text-4xl font-bold text-center mb-8 text-blue-400">Brands We Work With</h2>
+        <div
+          ref={scrollRef}
+          className="flex space-x-8 items-center whitespace-nowrap overflow-x-auto scrolling-touch scrollbar-hide"
+          style={{ scrollBehavior: 'smooth' }}
+        >
+          {logos.map((logo, index) => (
+            <a
+              key={index}
+              href={logo.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-shrink-0 transition-transform transform hover:scale-105"
+            >
+              <img
+                src={logo.src}
+                alt={`Client Logo ${index + 1}`}
+                className="h-36 w-auto object-contain shadow-lg rounded-md"
+                onError={(e) => {
+                  e.target.onerror = null;
+                  e.target.src = 'https://via.placeholder.com/150?text=Logo+Not+Found';
+                }}
+              />
+            </a>
+          ))}
+          {/* Duplicate the logos to create a continuous effect */}
+          {logos.map((logo, index) => (
+            <a
+              key={`duplicate-${index}`}
+              href={logo.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-shrink-0 transition-transform transform hover:scale-105"
+            >
+              <img
+                src={logo.src}
+                alt={`Client Logo Duplicate ${index + 1}`}
+                className="h-36 w-auto object-contain shadow-lg rounded-md"
+                onError={(e) => {
+                  e.target.onerror = null;
+                  e.target.src = 'https://via.placeholder.com/150?text=Logo+Not+Found';
+                }}
+              />
+            </a>
+          ))}
         </div>
       </div>
     </div>

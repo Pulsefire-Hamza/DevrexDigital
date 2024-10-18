@@ -11,6 +11,7 @@ export default {
       },
       animation: {
         'glow-bright': 'glow-bright 1.5s infinite', // Define the custom glowing animation
+        'float': 'float 3s ease-in-out infinite', // Define the floating animation
       },
       keyframes: {
         'glow-bright': {
@@ -23,8 +24,15 @@ export default {
             filter: 'brightness(1.5)',
           },
         },
+        'float': {
+          '0%': { transform: 'translateY(0px)' },
+          '50%': { transform: 'translateY(-10px)' },
+          '100%': { transform: 'translateY(0px)' },
+        },
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('tailwind-scrollbar-hide'), // Add the scrollbar-hide plugin here
+  ],
 }
