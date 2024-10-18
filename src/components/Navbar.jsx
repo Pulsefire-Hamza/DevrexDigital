@@ -48,9 +48,7 @@ const Navbar = () => {
           <Link to="/services" className="text-white text-lg font-semibold hover:text-gray-300 transition duration-300">
             Services
           </Link>
-          <Link to="/reviews" className="text-white text-lg font-semibold hover:text-gray-300 transition duration-300">
-            Reviews
-          </Link>
+         
           <Link to="/contact" className="bg-blue-500 text-white text-lg font-bold px-4 py-2 rounded shadow-md hover:bg-blue-600 transition duration-300 flex items-center">
             Contact Us
           </Link>
@@ -67,9 +65,7 @@ const Navbar = () => {
             <Link to="/services" className="hover:text-gray-300 transition duration-300" onClick={() => setMenuOpen(false)}>
               Services
             </Link>
-            <Link to="/reviews" className="text-white text-lg font-semibold hover:text-gray-300 transition duration-300">
-            Reviews
-          </Link>
+           
             <Link to="/contact" className="bg-blue-500 text-white font-bold px-4 py-2 rounded hover:bg-blue-600 transition duration-300" onClick={() => setMenuOpen(false)}>
               Contact Us
             </Link>
