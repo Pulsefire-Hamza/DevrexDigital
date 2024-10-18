@@ -1,7 +1,17 @@
 import React, { useState } from 'react';
 
+
 const Contact = () => {
-  const [serviceType, setServiceType] = useState('');
+  const [selectedServices, setSelectedServices] = useState([]);
+  
+  const handleServiceChange = (event) => {
+    const value = event.target.value;
+    setSelectedServices((prev) => 
+      prev.includes(value) 
+        ? prev.filter(service => service !== value) 
+        : [...prev, value]
+    );
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -9,8 +19,9 @@ const Contact = () => {
     const email = e.target.email.value;
     const phone = e.target.phone.value || 'N/A';
     const message = e.target.message.value;
+    const services = selectedServices.join(', ');
 
-    const whatsappMessage = `Name: ${name}%0AEmail: ${email}%0APhone: ${phone}%0AService: ${serviceType}%0AMessage: ${message}`;
+    const whatsappMessage = `Name: ${name}%0AEmail: ${email}%0APhone: ${phone}%0AServices: ${services}%0AMessage: ${message}`;
     const whatsappNumber = '+923054122637'; // Replace with the doctor's WhatsApp number
 
     // Redirect to WhatsApp
@@ -27,7 +38,7 @@ const Contact = () => {
             Let’s Create Something Awesome Together
           </h2>
           <p className="text-lg mb-4">
-            At <span className="text-blue-500">Ruya Solutions</span>, we don’t just build apps; we build lasting partnerships. We’re pumped to hear about your project and see how we can help you crush your goals. Reach out to us today, and let’s make something amazing happen.
+            At <a href="https://www.instagram.com/devrexdigital" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:scale-110 transition-transform duration-300">Devrex Digital</a>, we don’t just build apps; we build lasting partnerships. We’re pumped to hear about your project and see how we can help you crush your goals. Reach out to us today, and let’s make something amazing happen.
           </p>
 
           <p className="text-lg mb-6">Please fill in the form.</p>
@@ -37,10 +48,24 @@ const Contact = () => {
             <span className="text-lg">OR</span>
             <span className="border-b border-gray-400 flex-grow"></span>
           </div>
-
           <p className="text-lg">
-            Send us a message at: <span className="text-blue-500">ruyasolutions@gmail.com</span>
+            Send us a message at: 
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=devrexdigital@gmail.com&su=Inquiry&body=Hello,%0A%0A" className="text-blue-500">
+              devrexdigital@gmail.com
+            </a>
           </p>
+          
+          {/* Fiverr Contact Button */}
+          <div className="mt-6">
+            <a 
+              href="https://www.fiverr.com/your-profile" // Replace with your Fiverr profile link
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-block bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition duration-300"
+            >
+             Order on Fiver
+            </a>
+          </div>
         </div>
 
         {/* Right Section: Form */}
@@ -79,20 +104,20 @@ const Contact = () => {
             </div>
 
             <div>
-              <label className="block text-sm font-medium">What type of service do you want?</label>
-              <select
-                name="service"
-                required
-                className="w-full px-3 py-2 mt-1 border border-gray-300 bg-gray-100 text-black rounded-lg focus:border-gray-400 focus:ring-0"
-                value={serviceType}
-                onChange={(e) => setServiceType(e.target.value)}
-              >
-                <option value="" className="bg-gray-100 text-black">Select a service</option>
-                <option value="App Development" className="bg-gray-100 text-black">App Development</option>
-                <option value="Web Development" className="bg-gray-100 text-black">Web Development</option>
-                <option value="Marketing" className="bg-gray-100 text-black">Marketing</option>
-                <option value="SEO" className="bg-gray-100 text-black">SEO</option>
-              </select>
+              <label className="block text-sm font-medium">What type of services do you want?</label>
+              <div className="space-y-2">
+                {['Web Development', 'App Development', 'Marketing', 'SEO'].map(service => (
+                  <div key={service} className="flex items-center">
+                    <input
+                      type="checkbox"
+                      value={service}
+                      onChange={handleServiceChange}
+                      className="mr-2"
+                    />
+                    <label className="text-white">{service}</label>
+                  </div>
+                ))}
+              </div>
             </div>
 
             <div>
@@ -107,7 +132,7 @@ const Contact = () => {
 
             <button
               type="submit"
-              className="w-full bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-green-600 transition duration-300"
+              className="w-full bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition duration-300"
             >
               Submit
             </button>
