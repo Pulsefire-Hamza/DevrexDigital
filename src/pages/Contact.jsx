@@ -14,14 +14,14 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const name = e.target.name.value;
-    const email = e.target.email.value;
-    const phone = e.target.phone.value || 'N/A';
-    const message = e.target.message.value;
-    const services = selectedServices.join(', ');
+    const name = encodeURIComponent(e.target.name.value);
+    const email = encodeURIComponent(e.target.email.value);
+    const phone = encodeURIComponent(e.target.phone.value || 'N/A');
+    const message = encodeURIComponent(e.target.message.value);
+    const services = encodeURIComponent(selectedServices.join(', '));
 
     const whatsappMessage = `Name: ${name}%0AEmail: ${email}%0APhone: ${phone}%0AServices: ${services}%0AMessage: ${message}`;
-    const whatsappNumber = '+996 702 473 024'; // Replace with the doctor's WhatsApp number
+    const whatsappNumber = '996702473024'; // Make sure to remove spaces
 
     // Redirect to WhatsApp
     window.open(`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`, '_blank');
