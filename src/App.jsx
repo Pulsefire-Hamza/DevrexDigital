@@ -6,7 +6,7 @@ import AboutUs from './components/AboutUs';
 import WhyWork from './components/WhyWork';
 import Portfolio from './pages/Portfolio';
 import Services from './pages/Services';
-
+import Contact from './pages/Contact';
 import PrivacyPolicy from './pages/PrivacyPolicy';  // Import PrivacyPolicy component
 import Terms from './pages/Terms';  // Import Terms component
 import Footer from './components/Footer';  // Import Footer component
@@ -32,7 +32,7 @@ const App = () => {
             <Route path="/" element={<><HeroSection /><AboutUs /><WhyWork /> <OurTeam/> <ClientLogos/>    </>} />
             <Route path="/portfolio" element={<Portfolio />} />
             <Route path="/services" element={<Services />} />
-            
+               <Route path="/contact" element={<Contact />} />
           
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />  {/* Privacy Policy Route */}
             <Route path="/terms" element={<Terms />} />  {/* Terms Route */}
