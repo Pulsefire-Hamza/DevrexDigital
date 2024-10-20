@@ -29,25 +29,26 @@ const ClientLogos = () => {
   useEffect(() => {
     const scroll = () => {
       if (scrollRef.current) {
-        scrollRef.current.scrollLeft += 1; // Increment the scroll position
-        // Loop back to the start when the scroll reaches the end
+        scrollRef.current.scrollLeft += 5; // Increased speed
         if (scrollRef.current.scrollLeft >= scrollRef.current.scrollWidth - scrollRef.current.clientWidth) {
-          scrollRef.current.scrollLeft = 0; // Reset to the start
+          scrollRef.current.scrollLeft = 0;
         }
       }
     };
 
-    const intervalId = setInterval(scroll, 10); // Adjust the speed by changing interval time
-    return () => clearInterval(intervalId); // Cleanup interval on component unmount
+    const intervalId = setInterval(scroll, 10); // Reduced interval for maximum smoothness
+    return () => clearInterval(intervalId);
   }, []);
 
   return (
-    <div className="p-6 flex justify-center">
-      <div className="w-full max-w-7xl overflow-hidden px-8">
-        <h2 className="text-4xl font-bold text-center mb-8 text-blue-400">Brands We Work With</h2>
+    <div className="p-4 flex justify-center">
+      <div className="w-full max-w-7xl overflow-hidden px-4 sm:px-8">
+        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-6 sm:mb-8 text-blue-500">
+          Brands We Work With
+        </h2>
         <div
           ref={scrollRef}
-          className="flex space-x-8 items-center whitespace-nowrap overflow-x-auto scrolling-touch scrollbar-hide"
+          className="flex space-x-6 sm:space-x-10 items-center whitespace-nowrap overflow-hidden scrolling-touch scrollbar-hide"
           style={{ scrollBehavior: 'smooth' }}
         >
           {logos.map((logo, index) => (
@@ -56,12 +57,12 @@ const ClientLogos = () => {
               href={logo.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-shrink-0 transition-transform transform hover:scale-105"
+              className="flex-shrink-0 transition-transform transform hover:scale-105 hover:shadow-lg"
             >
               <img
                 src={logo.src}
                 alt={`Client Logo ${index + 1}`}
-                className="h-36 w-auto object-contain shadow-lg rounded-md"
+                className="h-20 sm:h-28 w-auto object-contain shadow-md rounded-lg transition duration-300 ease-in-out"
                 onError={(e) => {
                   e.target.onerror = null;
                   e.target.src = 'https://via.placeholder.com/150?text=Logo+Not+Found';
@@ -69,19 +70,19 @@ const ClientLogos = () => {
               />
             </a>
           ))}
-          {/* Duplicate the logos to create a continuous effect */}
+          {/* Duplicate the logos for continuous scrolling effect */}
           {logos.map((logo, index) => (
             <a
               key={`duplicate-${index}`}
               href={logo.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-shrink-0 transition-transform transform hover:scale-105"
+              className="flex-shrink-0 transition-transform transform hover:scale-105 hover:shadow-lg"
             >
               <img
                 src={logo.src}
                 alt={`Client Logo Duplicate ${index + 1}`}
-                className="h-36 w-auto object-contain shadow-lg rounded-md"
+                className="h-20 sm:h-28 w-auto object-contain shadow-md rounded-lg transition duration-300 ease-in-out"
                 onError={(e) => {
                   e.target.onerror = null;
                   e.target.src = 'https://via.placeholder.com/150?text=Logo+Not+Found';
