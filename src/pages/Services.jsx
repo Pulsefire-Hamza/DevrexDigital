@@ -89,20 +89,29 @@ const Services = () => {
           {servicesData.map((service, index) => (
             <div
               key={index}
-              className={`flex flex-col md:flex-row items-center justify-center md:items-start ${
+              className={`flex flex-col md:flex-row items-center justify-center md:items-start space-y-4 md:space-y-0 ${
                 index % 2 === 1 ? 'md:flex-row-reverse' : ''
               }`}
             >
+              <div className="md:hidden">
+                {/* Title at top for mobile */}
+                <h3 className="text-2xl font-semibold mb-2 leading-relaxed text-blue-500">{service.title}</h3>
+              </div>
+
               <div className="w-full md:w-1/3">
                 <img
                   src={service.imageSrc}
                   alt={service.title}
                   className="w-full h-60 object-cover rounded-lg"
-                  loading="lazy" // Add lazy loading here
+                  loading="lazy"
                 />
               </div>
+
               <div className="text-center md:text-left md:w-2/3 md:ml-8">
-                <h3 className="text-2xl font-semibold mb-2 leading-relaxed text-blue-500">{service.title}</h3>
+                <div className="hidden md:block">
+                  {/* Title for larger screens */}
+                  <h3 className="text-2xl font-semibold mb-2 leading-relaxed text-blue-500">{service.title}</h3>
+                </div>
                 <p className="text-white max-w-lg leading-relaxed">{service.description}</p>
               </div>
             </div>
