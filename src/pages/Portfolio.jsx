@@ -52,22 +52,7 @@ const Portfolio = () => {
       websiteLink: "https://ruyasolutions.vercel.app/",
       category: "Business site",
     },
-    {
-      name: "Score For Outcome",
-      description:
-        "Score for outcome is an end-to-end platform for measuring outcome results in patients who go through psychological therapy. The platform boasts a patient management system, data visualization for therapy, and custom outcome form creator for mental health practitioners. This is supplemented by my email and phone notification for clients as well as practitioners.",
-      imageUrl: "https://firebasestorage.googleapis.com/v0/b/devrex-628fe.appspot.com/o/Score-For-Outcome-10-17-2024_02_48_AM.png?alt=media&token=0ca56a98-22a4-4e65-959e-f424972394ca",
-      websiteLink: "https://scoreforoutcome.com/",
-      category: "Business site",
-    },
-    {
-      name: "Ar-Rahman Welfare Foundation Canada",
-      description:
-        "Ar-Rahman Welfare Foundation Canada (AWFCA) is a welfare charity that started out in Ontario, Canada. Their aim is to provide resources and support to those in need, empowering them to overcome poverty and build a better future for themselves and their families. We worked with them a couple of years ago to get their website, donation link, and email server working. We also handle their SEO and hosting.",
-      imageUrl: "https://firebasestorage.googleapis.com/v0/b/devrex-628fe.appspot.com/o/Arrahman-Welfare-Foundation-Canada-10-17-2024_02_50_AM-min.png?alt=media&token=fe348407-cab9-408b-ba45-03b776d3575e",
-      websiteLink: "https://awfca.ca/",
-      category: "Business site",
-    },
+  
     {
       name: "Client Portfolio",
       description:
