@@ -15,7 +15,6 @@ import ClientLogos from './components/ClientLogos';
 
 
 
-
 const App = () => {
   return (
     <div className="overflow-x-hidden text-neutral-300 antialiased selection:bg-cyan-300 selection:text-cyan-900">  
@@ -32,8 +31,7 @@ const App = () => {
             <Route path="/" element={<><HeroSection /><AboutUs /><WhyWork /> <OurTeam/> <ClientLogos/>    </>} />
             <Route path="/portfolio" element={<Portfolio />} />
             <Route path="/services" element={<Services />} />
-               <Route path="/contact" element={<Contact />} />
-          
+            <Route path="/contact" element={<Contact />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />  {/* Privacy Policy Route */}
             <Route path="/terms" element={<Terms />} />  {/* Terms Route */}
           </Routes>
