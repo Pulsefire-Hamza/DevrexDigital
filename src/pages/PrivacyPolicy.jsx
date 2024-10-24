@@ -81,7 +81,7 @@ const PrivacyPolicy = () => {
       <p>We may update this Privacy Policy from time to time. We will notify you of any material changes by posting the new Privacy Policy on our website and updating the "Last Updated" date. Your continued use of our Services after any changes constitutes your acceptance of the updated Privacy Policy.</p>
 
       <h2 className="text-lg font-semibold mt-6">9. Contact Information</h2>
-      <p>If you have any questions or concerns about this Privacy Policy or our data practices, please contact us at: <a href="https://inarasolutions.io/contact-us" className="text-cyan-300">inarasolutions.io/contact-us</a></p>
+      <p>If you have any questions or concerns about this Privacy Policy or our data practices, please contact us at: <a href="/" className="text-cyan-300">inarasolutions.io/contact-us</a></p>
     </div>
   );
 };
